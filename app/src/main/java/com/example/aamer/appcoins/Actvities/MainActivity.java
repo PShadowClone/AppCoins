@@ -1,7 +1,9 @@
-package com.example.aamer.appcoins;
+package com.example.aamer.appcoins.Actvities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.aamer.appcoins.R;
 
 public class MainActivity extends AppCompatActivity {
 
