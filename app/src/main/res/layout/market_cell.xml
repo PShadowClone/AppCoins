@@ -2,53 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/coin_cell"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/coin_cell">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/coin_name"
+            android:id="@+id/market_name"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:gravity="center"
-            android:text="Amr"
-            android:textAlignment="center" />
+            android:text="Market 1" />
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:orientation="horizontal"
             android:weightSum="100">
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:orientation="vertical"
-                android:weightSum="100">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Trade Date" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/price"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="334.31410785" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
             <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -64,7 +37,7 @@
                     android:text="Price" />
 
                 <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/trade_date"
+                    android:id="@+id/market_price"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="50"
@@ -72,9 +45,46 @@
                     android:text="334.31410785" />
 
             </android.support.v7.widget.LinearLayoutCompat>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:orientation="vertical"
+                android:weightSum="100">
 
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="volume" />
 
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/market_volume"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="334.31410785" />
+
+            </android.support.v7.widget.LinearLayoutCompat>
+            <!--<android.support.v7.widget.AppCompatTextView-->
+                <!--android:id="@+id/market_price"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_weight="50"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Price : Market 1" />-->
+
+            <!--<android.support.v7.widget.AppCompatTextView-->
+                <!--android:id="@+id/market_volume"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_weight="50"-->
+                <!--android:gravity="center"-->
+                <!--android:text="volume : Market 1" />-->
         </android.support.v7.widget.LinearLayoutCompat>
+
 
     </android.support.v7.widget.LinearLayoutCompat>
 

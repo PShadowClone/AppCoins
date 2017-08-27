@@ -7,10 +7,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.aamer.appcoins.Structure.CoinInfoCallback;
 import com.example.aamer.appcoins.Structure.VolleyCallback;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -45,4 +48,23 @@ public class AllCoins {
                 });
         requestQueue.add(request);
     }
+
+    public void getCoinInfo(final CoinInfoCallback volleyCallback) {
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jsonObject) {
+                        volleyCallback.success(jsonObject);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        volleyCallback.error(volleyError.getMessage());
+                    }
+                });
+        requestQueue.add(request);
+    }
+
 }

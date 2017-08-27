@@ -8,4 +8,5 @@ public class Coins {
 
     private final static String BASE_URL = "http://api.cryptocoincharts.info/";
     public final static String ALL_COINS = BASE_URL + "tradingPairs";
+    public final static String COIN_INFO = BASE_URL + "tradingPair";
 }
