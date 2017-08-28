@@ -66,17 +66,20 @@ public class CoinInfo extends AppCompatActivity {
                     latest_trade_date.setText(jsonObject.getString("latest_trade").split(" ")[0]);
                     latest_trade_time.setText(jsonObject.getString("latest_trade").split(" ")[1]);
                     try {
-                        market_list.setAdapter(new MarketAdapter(jsonObject.getJSONArray("markets") , CoinInfo.this.getApplicationContext()));
+                        market_list.setAdapter(new MarketAdapter(jsonObject.getJSONArray("markets"), CoinInfo.this.getApplicationContext()));
                     } catch (Exception exception) {
-
+                        Log.e("Recycler view Error", exception.getMessage());
                     }
                 } catch (JSONException jsonException) {
+                    Toast.makeText(CoinInfo.this.getApplicationContext(), "Something went wrong, please try again later", Toast.LENGTH_LONG).show();
+
                 }
 
             }
 
             @Override
             public void error(String error) {
+                Toast.makeText(CoinInfo.this.getApplicationContext(), "Check your internet connection", Toast.LENGTH_LONG).show();
 
             }
         });
