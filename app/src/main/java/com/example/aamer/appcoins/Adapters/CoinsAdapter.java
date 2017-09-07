@@ -1,6 +1,7 @@
 package com.example.aamer.appcoins.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.aamer.appcoins.Actvities.CoinInfo;
 import com.example.aamer.appcoins.R;
 
 import org.json.JSONArray;
@@ -43,6 +45,7 @@ public class CoinsAdapter extends RecyclerView.Adapter<CoinsAdapter.ViewHolder> 
             holder.coinName.setText(coin.getString("id"));
             holder.price.setText(coin.getString("price"));
             holder.tradeDate.setText(coin.getString("latest_trade"));
+            holder.view.setTag(coin.getString("id"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -58,13 +61,27 @@ public class CoinsAdapter extends RecyclerView.Adapter<CoinsAdapter.ViewHolder> 
         public AppCompatTextView coinName;
         public AppCompatTextView price;
         public AppCompatTextView tradeDate;
+        public View view;
 
         ViewHolder(View itemView) {
             super(itemView);
             coinName = (AppCompatTextView) itemView.findViewById(R.id.coin_name);
             price = (AppCompatTextView) itemView.findViewById(R.id.trade_date);
             tradeDate = (AppCompatTextView) itemView.findViewById(R.id.price);
+            this.view = itemView;
+            toCoinInfo();
+        }
 
+        void toCoinInfo() {
+            this.view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, CoinInfo.class);
+                    intent.putExtra("coin_name", view.getTag().toString());
+                    context.startActivity(intent);
+
+                }
+            });
         }
     }
 }
