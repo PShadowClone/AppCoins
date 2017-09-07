@@ -18,6 +18,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by aamer on 8/28/2017.
  */
@@ -43,7 +45,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
             JSONObject market = markets.getJSONObject(position);
             holder.market_name.setText(market.getString("market"));
             holder.market_price.setText(market.getString("price"));
-            holder.market_volume.setText(market.getString("volume"));
+            holder.market_volume.setText(new DecimalFormat("##.##").format(Double.parseDouble(market.getString("volume"))));
             holder.view.setTag(market.getString("market"));
         } catch (JSONException jsonException) {
         }
@@ -73,7 +75,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-                    String keyword= view.getTag().toString();
+                    String keyword = view.getTag().toString();
                     intent.putExtra(SearchManager.QUERY, keyword);
                     context.startActivity(intent);
                 }
